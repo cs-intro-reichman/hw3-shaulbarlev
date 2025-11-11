@@ -83,7 +83,6 @@ public class Algebra {
 
 		while (true) {
 			mult = times(x2,i);
-			// System.out.println(mult + " " + oldmult + " " + i);
 			i++;
 			if (mult > x1) {
 				break;
@@ -98,7 +97,12 @@ public class Algebra {
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+		int i = 0;
+		int res = 0;
+		while (res <= x && i < 20000) {
+			i++;
+			res = times(i,i);
+		}
+		return i-1;
 	}	  	  
 }
