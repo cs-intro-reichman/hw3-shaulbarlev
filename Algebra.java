@@ -6,7 +6,7 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
-	    // System.out.println(plus(2,3));   // 2 + 3
+	    System.out.println(plus(-10,-3));   // 2 + 3
 	    // System.out.println(minus(7,2));  // 7 - 2
    		// System.out.println(minus(2,7));  // 2 - 7
  		// System.out.println(times(3,4));  // 3 * 4
@@ -18,15 +18,23 @@ public class Algebra {
    		// System.out.println(div(25,7));   // 25 / 7
    		// System.out.println(mod(6,7));   // 25 % 7
    		// System.out.println(mod(120,6));  // 120 % 6    
+   		System.out.println(times(2,-2));
    		System.out.println(sqrt(36));
-		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123));
+		// System.out.println(sqrt(263169));
+   		// System.out.println(sqrt(76123));
 	}  
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		for (int i = 0; i < x2; i++) {
-			x1++;
+		if (x2 > 0) {
+			for (int i = 0; i < x2; i++) {
+				x1++;
+			}
+		}
+		else {
+			for (int i = x2; i < 0; i++) {
+				x1--;
+			}
 		}
 		return x1;
 	}
@@ -54,9 +62,7 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		int out = 0;
 		for (int i = 0; i < x1; i++) {
-			for (int j = 0; j < x2; j++) {
-				out++;
-			}
+			out = plus(out,x2);
 		}
 		return out;
 	}
