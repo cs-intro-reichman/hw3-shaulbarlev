@@ -10,7 +10,7 @@ public class Algebra {
 	    // System.out.println(minus(-10,-3));   // 2 + 3
 	    // System.out.println(minus(7,2));  // 7 - 2
    		// System.out.println(minus(2,7));  // 2 - 7
- 		// System.out.println(times(3,4));  // 3 * 4
+ 		// System.out.println(times(-3,-4));  // 3 * 4
    		// System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		// System.out.println(pow(5,3));      // 5^3
    		// System.out.println(pow(3,5));      // 3^5
@@ -21,9 +21,9 @@ public class Algebra {
    		// System.out.println(mod(120,6));  // 120 % 6    
    		// System.out.println(times(12,2));
    		// System.out.println(sqrt(36));
-   		System.out.println(pow(2,0));
-   		System.out.println(div(50,5));
-   		System.out.println(div(8,-2));
+   		// System.out.println(pow(2,0));
+   		// System.out.println(div(50,5));
+   		System.out.println(div(-8,2));
 		// System.out.println(sqrt(263169));
    		// System.out.println(sqrt(76123));
 	}  
@@ -88,14 +88,29 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		int mult = 0;
-		int i = 1;
+		
+		if (x1 == 0) {
+			return 0;
+		}
+		if (x2 == 0) {
+			return 1/0;
+		}
 
-		while (mult <= x1 && i < 200) {
-			mult = times(x2,i+1);
+		int mult = 0;
+		int i;
+
+		boolean negative = x1 < 0 ^ x2 < 0;
+
+		int a = x1 < 0 ? times(x1,-1) : x1;
+		int b = x2 < 0 ? times(x2,-1) : x2;
+
+		i = 1;
+		while (mult <= a) {
+			mult = times(b,i+1);
 			i++;
 		}
-		return i-1;
+		
+		return negative ? times(i-1,-1) : i-1;
 	}
 
 	// Returns x1 % x2
