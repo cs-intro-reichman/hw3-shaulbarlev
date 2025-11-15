@@ -82,10 +82,10 @@ public class LoanCalc {
 			double fl = endBalance(loan, rate, n, L);
 			
 			if (fg * fl > 0) {
-				L = g;
+				H = g;
 			}
 			else {
-				H = g;
+				L = g;
 			}
 			g = (L+H)/2;
 			iterationCounter++;
